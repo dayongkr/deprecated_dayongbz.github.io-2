@@ -333,12 +333,12 @@ $prompt-newer: "{{ site.data.label.post.button.next }}";
         padding-left: .5rem;
         padding-right: .3rem;
       }
-      &.flex-column {
-        -webkit-box-orient: horizontal!important;
-        -webkit-box-direction: normal!important;
-        -ms-flex-direction: row!important;
-        flex-direction: row!important;
-      }
+      // &.flex-column {
+      //   -webkit-box-orient: horizontal!important;
+      //   -webkit-box-direction: normal!important;
+      //   -ms-flex-direction: row!important;
+      //   flex-direction: row!important;
+      // }
     }
   } // .post
 }
