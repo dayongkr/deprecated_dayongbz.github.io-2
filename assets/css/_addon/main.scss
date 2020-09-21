@@ -815,6 +815,7 @@ div.post-content .table-wrapper {
   margin-top: 2rem;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  font-weight: 300;
   a {
     @extend %link-color;
     @extend %link-underline;
