@@ -1,11 +1,11 @@
 ---
 title: 자바 예외 정리(Java Exception)
-date: 2020-09-23 15:36:05 +0900
+date: 2020-09-23 20:36:05 +0900
 categories: [공부, 자바]
 tags: [공부, 자바, 정리, study, java]
 ---
 
-개발을 하다 보면 `예상한 혹`은 `예상치 못한 일`이 발생하는 것을 막아주기 위해 `안전장치를 하는 것`을 말한다. 이미 `try`, `catch`, `finally` 개념은 다른 언어에서 접해본 적이 있고 많이 알려진 문법이라 처음 알게 된 부분을 정리해보겠다!
+개발을 하다 보면 `예상한` 혹은 `예상치 못한 일`이 발생하는 것을 막아주기 위해 `안전장치를 하는 것`을 말한다. 이미 `try`, `catch`, `finally` 개념은 다른 언어에서 접해본 적이 있고 많이 알려진 문법이라 처음 알게 된 부분을 정리해보겠다!
 
 ## 두개 이상의 catch 가능
 
@@ -40,13 +40,13 @@ public void multiCatch(){
 
 ### runtime exception / unchecked exception
 
-'runtime exception'는 컴파일할 때 예외를 발생하지 않아서 실행 시에 발생하고 `RuntimeException`을 확장한 예외이다. 이처럼 컴파일 시에 체크를 하지 않기 때문에 `unchecked exception`이라고 부르는 것이다.
+`runtime exception`는 컴파일할 때 예외를 발생하지 않아서 실행 시에 발생하고 `RuntimeException`을 확장한 예외이다. 이처럼 컴파일 시에 체크를 하지 않기 때문에 `unchecked exception`이라고 부르는 것이다.
 
 ---
 
 ## 모든 예외의 부모 클래스는 java.lang.Throwable 클래스
 
-`RuntimeException` 클래스는 `Exception` 클래스를 확장했고 `Exception`, `Error` 클래스는 `Throwable` 클래스를 확장했다. 그래서 Throwable 클래스에서 선언된 아래와 같은 메소드들을 해당 클래스들이 사용할 수 있다.
+`RuntimeException` 클래스는 `Exception` 클래스를 확장했고 `Exception`, `Error` 클래스는 `Throwable` 클래스를 확장했다. 그래서 Throwable 클래스에서 선언된 아래와 같은 메소드들을 `Exception`, `Error` 클래스들을 확장한 예외들에서도 사용할 수 있다.
 
 | 이름              | 설명                                                                                                            |
 | :---------------- | :-------------------------------------------------------------------------------------------------------------- |
@@ -60,7 +60,7 @@ public void multiCatch(){
 throw new Exception("Number is over than 12");
 ```
 
-예외를 발생시키려면 위의 코드처럼 `throw 예외 객체`를 작성하면 된다.
+예외를 발생시키려면 위의 코드처럼 `throw new 예외 객체 생성자()`를 작성하면 된다.
 
 ```java
 public class ThrowTest {
@@ -81,7 +81,7 @@ public class ThrowTest {
 }
 ```
 
-그리고 `throws` 키워드를 메소드를 선언할 때 추가하면 해당 메소드를 호출하는 메소드로 예외 처리를 위임한다. 그래서 예외를 발생시키는 메소드에는 try-catch 문을 사용하지 않아도 된다. 하지만 호출한 메소드는 해당 메소드를 호출할 때마다 try-catch 문을 사용해야 한다. 그 때문에 더 복잡해지기 때문에 웬만하면 예외를 발생시킬 때 예외 처리를 하는 것이 좋다.
+그리고 `throws` 키워드를 메소드를 선언할 때 추가하면 해당 메소드를 호출하는 메소드로 예외 처리를 위임한다. 그래서 예외를 발생시키는 메소드에는 `try-catch 문`을 사용하지 않아도 된다. 하지만 해당 메소드를 호출한 메소드는 해당 메소드를 호출할 때마다 `try-catch 문`을 사용해야 한다. 그 때문에 더 복잡해지기 때문에 웬만하면 예외를 발생시킬 때 예외 처리를 하는 것이 좋다.
 
 ## RuntimeException을 활용하기
 
@@ -89,7 +89,7 @@ public class ThrowTest {
 throw new RuntimeException("runtime exception");
 ```
 
-runtime exception은 실행 시에 발생할 것 같을 때 확장해서 사용하면 더 편리하다. RuntimeException으로 확장해서 예외를 발생시키면 try-catch 문을 사용하지 않아도 컴파일 시에 예외가 발생하지 않기 때문이다.
+실행 시에 예외가 발생할 것 같을 때 `RuntimeException`을 확장해서 사용하면 더 편리하다. 왜냐하면 `RuntimeException`으로 확장해서 예외를 발생시키면 try-catch 문을 사용하지 않아도 컴파일 시에 예외가 발생하지 않기 때문이다.
 
 ---
 
